@@ -5,7 +5,9 @@ plugins {
 dependencies {
 	implementation project(':kds-service')
 	implementation libs.spring.boot.starter.web
-	implementation libs.spring.dotenv
+
+	implementation platform(libs.spring.dotenv.bom)
+	developmentOnly libs.springboot4.dotenv
 
 	testImplementation libs.spring.boot.starter.test
 }

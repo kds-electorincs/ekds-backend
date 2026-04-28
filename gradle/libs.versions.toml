@@ -1,16 +1,17 @@
 [versions]
-springBoot = "4.0.5"
-postgresql = "42.7.10"
-springDotenv = "4.0.0"
+springBoot   = "4.0.5"
+postgresql   = "42.7.10"
+springDotenv = "5.1.0"
 
 [plugins]
 spring-boot = { id = "org.springframework.boot", version.ref = "springBoot" }
 
 [libraries]
-spring-boot-bom               = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "springBoot"}
+spring-boot-bom               = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "springBoot" }
 spring-boot-starter           = { module = "org.springframework.boot:spring-boot-starter",          version.ref = "springBoot" }
 spring-boot-starter-web       = { module = "org.springframework.boot:spring-boot-starter-web",      version.ref = "springBoot" }
 spring-boot-starter-data-jpa  = { module = "org.springframework.boot:spring-boot-starter-data-jpa", version.ref = "springBoot" }
 spring-boot-starter-test      = { module = "org.springframework.boot:spring-boot-starter-test",     version.ref = "springBoot" }
 postgresql                    = { module = "org.postgresql:postgresql",                             version.ref = "postgresql" }
-spring-dotenv                 = { module = "me.paulschwarz:spring-dotenv",                          version.ref = "springDotenv" }
+spring-dotenv-bom             = { module = "me.paulschwarz:spring-dotenv-bom",                      version.ref = "springDotenv" }
+springboot4-dotenv            = { module = "me.paulschwarz:springboot4-dotenv" }
