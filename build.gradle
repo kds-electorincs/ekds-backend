@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+    alias(libs.plugins.spring.boot) apply false
+}
+
+
+allprojects {
+    group = 'com.knds'
+    version = '1.0-SNAPSHOT'
+}
+subprojects {
+    apply plugin: 'java'
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(25)
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation platform(libs.spring.boot.bom)
+    }
+}

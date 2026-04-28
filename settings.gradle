@@ -1,0 +1,5 @@
+rootProject.name = 'ekds'
+include 'kds-commons'
+include 'kds-repository'
+include 'kds-service'
+include 'kds-web'

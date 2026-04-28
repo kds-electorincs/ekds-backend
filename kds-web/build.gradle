@@ -1,0 +1,15 @@
+plugins {
+	alias(libs.plugins.spring.boot)
+}
+
+dependencies {
+	implementation project(':kds-service')
+	implementation libs.spring.boot.starter.web
+	implementation libs.spring.dotenv
+
+	testImplementation libs.spring.boot.starter.test
+}
+
+bootJar {
+	archiveFileName = 'kds.jar'
+}

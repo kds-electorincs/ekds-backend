@@ -1,0 +1,9 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    implementation project(':kds-commons')
+    implementation libs.spring.boot.starter.data.jpa
+    runtimeOnly    libs.postgresql
+}
