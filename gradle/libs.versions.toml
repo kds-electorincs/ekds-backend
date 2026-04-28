@@ -2,6 +2,7 @@
 springBoot   = "4.0.5"
 postgresql   = "42.7.10"
 springDotenv = "5.1.0"
+flyway = "11.17.0"
 
 [plugins]
 spring-boot = { id = "org.springframework.boot", version.ref = "springBoot" }
@@ -15,3 +16,5 @@ spring-boot-starter-test      = { module = "org.springframework.boot:spring-boot
 postgresql                    = { module = "org.postgresql:postgresql",                             version.ref = "postgresql" }
 spring-dotenv-bom             = { module = "me.paulschwarz:spring-dotenv-bom",                      version.ref = "springDotenv" }
 springboot4-dotenv            = { module = "me.paulschwarz:springboot4-dotenv" }
+spring-boot-starter-flyway   = { module = "org.springframework.boot:spring-boot-starter-flyway",   version.ref = "springBoot" }
+flyway-database-postgresql   = { module = "org.flywaydb:flyway-database-postgresql",               version.ref = "flyway" }
