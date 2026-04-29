@@ -1,4 +1,4 @@
-package com.knds.web.security;
+package com.knds.security;
 
 
 import com.knds.service.KdsUserDetailsService;

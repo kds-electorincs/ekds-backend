@@ -15,6 +15,7 @@ dependencies {
 	compileOnly libs.jjwt.api
 	compileOnly libs.jjwt.impl
 	compileOnly libs.jjwt.jackson
+	compileOnly libs.validation.api
 }
 
 bootJar {

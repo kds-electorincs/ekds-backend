@@ -3,6 +3,7 @@ package com.knds.repository.security;
 import com.knds.entities.security.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
@@ -11,7 +12,7 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query("SELECT u FROM User u WHERE LOWER(u.email) = LOWER(:email)")
-    Optional<User> findByEmailIgnoreCase(String email);
+    Optional<User> findByEmailIgnoreCase(@Param("email") String email);
 
     boolean existsByEmailIgnoreCase(String email);
 }

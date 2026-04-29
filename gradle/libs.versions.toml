@@ -4,6 +4,7 @@ postgresql   = "42.7.10"
 springDotenv = "5.1.0"
 flyway = "11.17.0"
 jjwt = "0.12.6"
+velidaiton = "3.1.1"
 
 
 [plugins]
@@ -24,3 +25,4 @@ spring-boot-starter-security = { module = "org.springframework.boot:spring-boot-
 jjwt-api                     = { module = "io.jsonwebtoken:jjwt-api",     version.ref = "jjwt" }
 jjwt-impl                    = { module = "io.jsonwebtoken:jjwt-impl",    version.ref = "jjwt" }
 jjwt-jackson                 = { module = "io.jsonwebtoken:jjwt-jackson", version.ref = "jjwt" }
+validation-api                = { module = "jakarta.validation:jakarta.validation-api", version.ref = "velidaiton" }

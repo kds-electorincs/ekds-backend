@@ -1,0 +1,5 @@
+package com.knds.commons.dto;
+
+import jakarta.validation.constraints.NotBlank;
+
+public record RefreshRequest(@NotBlank String refreshToken) { }
