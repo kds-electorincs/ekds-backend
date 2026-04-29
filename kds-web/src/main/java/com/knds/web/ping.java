@@ -1,4 +1,4 @@
-package com.knds.kdsweb.web;
+package com.knds.web;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

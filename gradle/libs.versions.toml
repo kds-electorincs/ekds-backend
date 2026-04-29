@@ -3,6 +3,8 @@ springBoot   = "4.0.5"
 postgresql   = "42.7.10"
 springDotenv = "5.1.0"
 flyway = "11.17.0"
+jjwt = "0.12.6"
+
 
 [plugins]
 spring-boot = { id = "org.springframework.boot", version.ref = "springBoot" }
@@ -15,6 +17,10 @@ spring-boot-starter-data-jpa  = { module = "org.springframework.boot:spring-boot
 spring-boot-starter-test      = { module = "org.springframework.boot:spring-boot-starter-test",     version.ref = "springBoot" }
 postgresql                    = { module = "org.postgresql:postgresql",                             version.ref = "postgresql" }
 spring-dotenv-bom             = { module = "me.paulschwarz:spring-dotenv-bom",                      version.ref = "springDotenv" }
-springboot4-dotenv            = { module = "me.paulschwarz:springboot4-dotenv" }
+springboot4-dotenv            = { module = "me.paulschwarz:springboot4-dotenv", version.ref = "springDotenv"}
 spring-boot-starter-flyway   = { module = "org.springframework.boot:spring-boot-starter-flyway",   version.ref = "springBoot" }
 flyway-database-postgresql   = { module = "org.flywaydb:flyway-database-postgresql",               version.ref = "flyway" }
+spring-boot-starter-security = { module = "org.springframework.boot:spring-boot-starter-security", version.ref = "springBoot" }
+jjwt-api                     = { module = "io.jsonwebtoken:jjwt-api",     version.ref = "jjwt" }
+jjwt-impl                    = { module = "io.jsonwebtoken:jjwt-impl",    version.ref = "jjwt" }
+jjwt-jackson                 = { module = "io.jsonwebtoken:jjwt-jackson", version.ref = "jjwt" }

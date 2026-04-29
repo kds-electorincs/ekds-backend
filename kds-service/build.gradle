@@ -1,4 +1,15 @@
+plugins{
+    id('java-library')
+}
+
 dependencies {
-    implementation project(':kds-repository')
+    implementation platform(libs.spring.boot.bom)
+
+    api project(':kds-commons')
+    api project(':kds-repository')
     implementation libs.spring.boot.starter
+    implementation 'org.springframework.security:spring-security-core'   // ← ADD
+    implementation libs.jjwt.api
+    runtimeOnly    libs.jjwt.impl
+    runtimeOnly    libs.jjwt.jackson
 }
