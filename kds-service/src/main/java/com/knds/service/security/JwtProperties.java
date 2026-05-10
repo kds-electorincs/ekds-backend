@@ -1,4 +1,4 @@
-package com.knds.security;
+package com.knds.service.security;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

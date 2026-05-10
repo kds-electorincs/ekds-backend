@@ -1,8 +1,11 @@
 package com.knds.error;
 
+import com.knds.commons.exceptions.AdminRoleNameConflictException;
+import com.knds.commons.exceptions.AdminRoleNotFoundException;
 import com.knds.commons.exceptions.EmailAlreadyRegisteredException;
 import com.knds.commons.exceptions.InvalidCredentialsException;
 import com.knds.commons.exceptions.InvalidRefreshTokenException;
+import com.knds.commons.exceptions.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.security.access.AccessDeniedException;
@@ -54,6 +57,26 @@ public class GlobalExceptionHandler {
         ProblemDetail pd = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, "Validation failed");
         pd.setTitle("Validation failed");
         pd.setProperty("errors", fieldErrors);
+        return pd;
+    }
+    @ExceptionHandler(UserNotFoundException.class)
+    public ProblemDetail handleUserNotFound(UserNotFoundException ex) {
+        ProblemDetail pd = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.getMessage());
+        pd.setTitle("User not found");
+        return pd;
+    }
+
+    @ExceptionHandler(AdminRoleNotFoundException.class)
+    public ProblemDetail handleAdminRoleNotFound(AdminRoleNotFoundException ex) {
+        ProblemDetail pd = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.getMessage());
+        pd.setTitle("Admin role not found");
+        return pd;
+    }
+
+    @ExceptionHandler(AdminRoleNameConflictException.class)
+    public ProblemDetail handleAdminRoleNameConflict(AdminRoleNameConflictException ex) {
+        ProblemDetail pd = ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
+        pd.setTitle("Admin role name conflict");
         return pd;
     }
 }

@@ -1,6 +1,6 @@
-package com.knds.impl;
+package com.knds.service.impl;
 
-import com.knds.security.JwtProperties;
+import com.knds.service.security.JwtProperties;
 import com.knds.service.JwtService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

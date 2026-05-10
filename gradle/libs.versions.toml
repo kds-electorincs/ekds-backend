@@ -26,3 +26,4 @@ jjwt-api                     = { module = "io.jsonwebtoken:jjwt-api",     versio
 jjwt-impl                    = { module = "io.jsonwebtoken:jjwt-impl",    version.ref = "jjwt" }
 jjwt-jackson                 = { module = "io.jsonwebtoken:jjwt-jackson", version.ref = "jjwt" }
 validation-api                = { module = "jakarta.validation:jakarta.validation-api", version.ref = "velidaiton" }
+caffeine = { module = "com.github.ben-manes.caffeine:caffeine" }

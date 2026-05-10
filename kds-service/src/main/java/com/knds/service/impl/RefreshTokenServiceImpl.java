@@ -1,10 +1,10 @@
-package com.knds.impl;
+package com.knds.service.impl;
 
 import com.knds.commons.exceptions.InvalidRefreshTokenException;
 import com.knds.entities.security.RefreshToken;
 import com.knds.entities.security.User;
 import com.knds.repository.security.RefreshTokenRepository;
-import com.knds.security.JwtProperties;
+import com.knds.service.security.JwtProperties;
 import com.knds.service.RefreshTokenService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

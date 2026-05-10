@@ -1,4 +1,4 @@
-package com.knds.impl;
+package com.knds.service.impl;
 
 import com.knds.repository.security.UserRepository;
 import com.knds.service.KdsUserDetailsService;

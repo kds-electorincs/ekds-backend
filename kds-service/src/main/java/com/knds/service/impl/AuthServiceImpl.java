@@ -1,4 +1,4 @@
-package com.knds.impl;
+package com.knds.service.impl;
 
 import com.knds.commons.dto.AuthTokens;
 import com.knds.commons.dto.LoginRequest;
@@ -9,17 +9,15 @@ import com.knds.entities.security.Role;
 import com.knds.entities.security.User;
 import com.knds.repository.security.RoleRepository;
 import com.knds.repository.security.UserRepository;
-import com.knds.security.JwtProperties;
+import com.knds.service.security.JwtProperties;
 import com.knds.service.AuthService;
 import com.knds.service.JwtService;
 import com.knds.service.RefreshTokenService;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.OffsetDateTime;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 

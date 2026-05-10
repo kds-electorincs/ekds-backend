@@ -1,6 +1,6 @@
 package com.knds;
 
-import com.knds.security.JwtProperties;
+import com.knds.service.security.JwtProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

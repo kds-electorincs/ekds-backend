@@ -43,6 +43,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/products/**", "/api/categories/**").permitAll()
                         .requestMatchers("/actuator/health").permitAll()
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**").permitAll()
+                        .requestMatchers("/api/admin/admin-management/**").hasRole("SUPER_ADMIN")
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/ping").permitAll()
                         .anyRequest().authenticated()

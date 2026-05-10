@@ -1,4 +1,4 @@
-package com.knds.impl;
+package com.knds.service.impl;
 
 import com.knds.commons.dto.UserProfileResponse;
 import com.knds.commons.exceptions.UserNotFoundException;

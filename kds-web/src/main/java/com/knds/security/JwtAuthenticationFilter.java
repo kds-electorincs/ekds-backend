@@ -1,6 +1,7 @@
 package com.knds.security;
 
 import com.knds.service.JwtService;
+import com.knds.service.security.AdminPageGuard;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import jakarta.servlet.FilterChain;
@@ -76,5 +77,5 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     }
 
     /** Lightweight principal — no DB hit per request. */
-    public record JwtUserContext(Long userId, String email) { }
+    public record JwtUserContext(Long userId, String email) implements AdminPageGuard.JwtPrincipal { }
 }
