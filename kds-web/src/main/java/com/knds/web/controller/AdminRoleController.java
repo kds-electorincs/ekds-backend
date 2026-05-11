@@ -1,9 +1,9 @@
-package com.knds.controller;
+package com.knds.web.controller;
 
 import com.knds.commons.dto.AdminRoleResponse;
 import com.knds.commons.dto.CreateAdminRoleRequest;
 import com.knds.commons.dto.UpdateAdminRoleRequest;
-import com.knds.security.JwtAuthenticationFilter;
+import com.knds.web.security.JwtAuthenticationFilter;
 import com.knds.service.AdminRoleService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

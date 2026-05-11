@@ -1,4 +1,4 @@
-package com.knds.controller;
+package com.knds.web.controller;
 
 import com.knds.commons.dto.AuthTokens;
 import com.knds.commons.dto.LoginRequest;

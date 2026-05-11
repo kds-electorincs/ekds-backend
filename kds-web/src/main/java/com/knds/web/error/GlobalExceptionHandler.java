@@ -1,10 +1,13 @@
-package com.knds.error;
+package com.knds.web.error;
 
 import com.knds.commons.exceptions.AdminRoleNameConflictException;
 import com.knds.commons.exceptions.AdminRoleNotFoundException;
 import com.knds.commons.exceptions.EmailAlreadyRegisteredException;
 import com.knds.commons.exceptions.InvalidCredentialsException;
 import com.knds.commons.exceptions.InvalidRefreshTokenException;
+import com.knds.commons.exceptions.InvitationNotFoundException;
+import com.knds.commons.exceptions.InvitationNotPendingException;
+import com.knds.commons.exceptions.PendingInvitationExistsException;
 import com.knds.commons.exceptions.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
@@ -77,6 +80,26 @@ public class GlobalExceptionHandler {
     public ProblemDetail handleAdminRoleNameConflict(AdminRoleNameConflictException ex) {
         ProblemDetail pd = ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
         pd.setTitle("Admin role name conflict");
+        return pd;
+    }
+    @ExceptionHandler(InvitationNotFoundException.class)
+    public ProblemDetail handleInvitationNotFound(InvitationNotFoundException ex) {
+        ProblemDetail pd = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.getMessage());
+        pd.setTitle("Invitation not found");
+        return pd;
+    }
+
+    @ExceptionHandler(InvitationNotPendingException.class)
+    public ProblemDetail handleInvitationNotPending(InvitationNotPendingException ex) {
+        ProblemDetail pd = ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
+        pd.setTitle("Invitation is no longer pending");
+        return pd;
+    }
+
+    @ExceptionHandler(PendingInvitationExistsException.class)
+    public ProblemDetail handlePendingInvitationExists(PendingInvitationExistsException ex) {
+        ProblemDetail pd = ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
+        pd.setTitle("Pending invitation exists");
         return pd;
     }
 }

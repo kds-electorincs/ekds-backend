@@ -1,7 +1,7 @@
-package com.knds.controller;
+package com.knds.web.controller;
 
 import com.knds.commons.dto.UserProfileResponse;
-import com.knds.security.JwtAuthenticationFilter;
+import com.knds.web.security.JwtAuthenticationFilter;
 import com.knds.service.UserService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
