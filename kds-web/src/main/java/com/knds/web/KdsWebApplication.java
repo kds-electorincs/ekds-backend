@@ -7,11 +7,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.persistence.autoconfigure.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication(scanBasePackages = "com.knds")
 @EnableJpaRepositories(basePackages = "com.knds.repository")
 @EntityScan(basePackages = "com.knds.entities")
 @EnableConfigurationProperties({JwtProperties.class, InvitationProperties.class})
+@EnableScheduling
 public class KdsWebApplication {
 
 	public static void main(String[] args) {
