@@ -4,6 +4,7 @@ import com.knds.commons.exceptions.AdminRoleNameConflictException;
 import com.knds.commons.exceptions.AdminRoleNotFoundException;
 import com.knds.commons.exceptions.EmailAlreadyRegisteredException;
 import com.knds.commons.exceptions.InvalidCredentialsException;
+import com.knds.commons.exceptions.InvalidInvitationTokenException;
 import com.knds.commons.exceptions.InvalidRefreshTokenException;
 import com.knds.commons.exceptions.InvitationNotFoundException;
 import com.knds.commons.exceptions.InvitationNotPendingException;
@@ -100,6 +101,17 @@ public class GlobalExceptionHandler {
     public ProblemDetail handlePendingInvitationExists(PendingInvitationExistsException ex) {
         ProblemDetail pd = ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
         pd.setTitle("Pending invitation exists");
+        return pd;
+    }
+    @ExceptionHandler(InvalidInvitationTokenException.class)
+    public ProblemDetail handleInvalidInvitationToken(InvalidInvitationTokenException ex) {
+        // Note: ex.getMessage() is for server logs. The detail in the response
+        // is intentionally generic to avoid information disclosure.
+        ProblemDetail pd = ProblemDetail.forStatusAndDetail(
+                HttpStatus.GONE,
+                "This invitation link is invalid or expired"
+        );
+        pd.setTitle("Invitation unavailable");
         return pd;
     }
 }

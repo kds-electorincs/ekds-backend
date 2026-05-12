@@ -1,9 +1,12 @@
 package com.knds.web.controller;
 
+import com.knds.commons.dto.AcceptInvitationRequest;
 import com.knds.commons.dto.AuthTokens;
+import com.knds.commons.dto.InvitationPreviewResponse;
 import com.knds.commons.dto.LoginRequest;
 import com.knds.commons.dto.RefreshRequest;
 import com.knds.commons.dto.RegisterRequest;
+import com.knds.service.AdminInvitationService;
 import com.knds.service.AuthService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -16,9 +19,11 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     private final AuthService authService;
+    private final AdminInvitationService invitationService;
 
-    public AuthController(AuthService authService) {
+    public AuthController(AuthService authService, AdminInvitationService invitationService) {
         this.authService = authService;
+        this.invitationService = invitationService;
     }
 
     @PostMapping("/register")
@@ -54,5 +59,22 @@ public class AuthController {
             return forwarded.split(",")[0].trim();
         }
         return req.getRemoteAddr();
+    }
+    @GetMapping("/invitations/{token}")
+    public InvitationPreviewResponse previewInvitation(@PathVariable String token) {
+        return invitationService.preview(token);
+    }
+
+    @PostMapping("/invitations/{token}/accept")
+    public AuthTokens acceptInvitation(
+            @PathVariable String token,
+            @Valid @RequestBody AcceptInvitationRequest req,
+            HttpServletRequest http) {
+        return invitationService.accept(
+                token,
+                req,
+                http.getHeader("User-Agent"),
+                clientIp(http)
+        );
     }
 }
